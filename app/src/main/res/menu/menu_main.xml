@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="james.monkeytester.MainActivity">
     <item
-        android:id="@+id/action_view"
-        android:icon="@drawable/ic_github"
+        android:id="@+id/action_github"
         android:orderInCategory="100"
-        android:title="Github Repository"
+        android:title="@string/action_github"
         app:showAsAction="ifRoom" />
 </menu>

@@ -4,9 +4,23 @@
         "This app was made in order to determine whether a user is a monkey, a goat, or both, depending on booleans obtained from android's ActivityManager and UserManager."
         "According to the android developer documentation, if you are a monkey it means that you or someone else has messed with the user interface, however all we know for the goat is that as of lollipop, it uses an advanced goat recognition algorithm."
     </string>
-    <string name="action_settings">Settings</string>
-    <string name="moat_or_gokey">You are both a monkey and a goat, a new type of monkey-goat hybrid... either a moat or gokey. Names are confusing.</string>
+
+    <string name="action_github">GitHub Repository</string>
+    <string name="action_docs">View Documentation</string>
+    <string name="action_monkey">ActivityManager.isUserAMonkey()</string>
+    <string name="action_goat">UserManager.isUserAGoat()</string>
+
+    <string name="moat_or_gokey">You are both a monkey and a goat, a new type of monkey-goat hybrid… either a moat or gokey. Names are confusing.</string>
     <string name="monkey">You are a monkey.</string>
     <string name="goat">You are a goat.</string>
     <string name="neither">You are neither a monkey nor a goat.</string>
+
+    <string name="me">Me</string>
+    <string name="me_desc">Ate a cabbage.</string>
+
+    <string name="kartik">Kartik Arora</string>
+    <string name="kartik_desc">Did some UI things.</string>
+
+    <string name="alex">Alex Dueppen</string>
+    <string name="alex_desc">Made the app\'s icon.</string>
 </resources>

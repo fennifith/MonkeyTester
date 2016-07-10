@@ -3,10 +3,12 @@ package james.monkeytester;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.support.customtabs.CustomTabsIntent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -42,24 +44,24 @@ public class MainActivity extends AppCompatActivity {
             text.setText(R.string.neither);
         }
 
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_description));
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(MainActivity.this).setTitle("View Documentation")
-                        .setPositiveButton("ActivityManager.isUserAMonkey()",
+                new AlertDialog.Builder(MainActivity.this).setTitle(R.string.action_docs)
+                        .setPositiveButton(R.string.action_monkey,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                                Uri.parse(URL_MONKEY_DOCS)));
+                                        getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse(URL_MONKEY_DOCS));
                                     }
                                 })
-                        .setNeutralButton("UserManager.isUserAGoat()",
+                        .setNeutralButton(R.string.action_goat,
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                                Uri.parse(URL_GOAT_DOCS)));
+                                        getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse(URL_GOAT_DOCS));
                                     }
                                 })
                         .create().show();
@@ -69,16 +71,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.me).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://theandroidmaster.github.io/")));
+                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("http://theandroidmaster.github.io/"));
+            }
+        });
+
+        findViewById(R.id.kartik).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("http://kartikarora.me/"));
             }
         });
 
         findViewById(R.id.alex).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://plus.google.com/+adueppen")));
+                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("https://plus.google.com/+adueppen"));
             }
         });
     }
@@ -86,15 +93,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        menu.findItem(R.id.action_github).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_github));
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_view) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/TheAndroidMaster/MonkeyTester")));
+        if (item.getItemId() == R.id.action_github) {
+            getCustomTabsIntent().launchUrl(this, Uri.parse("https://github.com/TheAndroidMaster/MonkeyTester"));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private CustomTabsIntent getCustomTabsIntent() {
+        return new CustomTabsIntent.Builder().setToolbarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary)).build();
     }
 }
