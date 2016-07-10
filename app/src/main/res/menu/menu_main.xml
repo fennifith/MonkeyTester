@@ -4,7 +4,8 @@
     tools:context="james.monkeytester.MainActivity">
     <item
         android:id="@+id/action_view"
+        android:icon="@drawable/ic_github"
         android:orderInCategory="100"
         android:title="Github Repository"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
