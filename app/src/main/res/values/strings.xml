@@ -5,4 +5,8 @@
         "According to the android developer documentation, if you are a monkey it means that you or someone else has messed with the user interface, however all we know for the goat is that as of lollipop, it uses an advanced goat recognition algorithm."
     </string>
     <string name="action_settings">Settings</string>
+    <string name="moat_or_gokey">You are both a monkey and a goat, a new type of monkey-goat hybrid... either a moat or gokey. Names are confusing.</string>
+    <string name="monkey">You are a monkey.</string>
+    <string name="goat">You are a goat.</string>
+    <string name="neither">You are neither a monkey nor a goat.</string>
 </resources>

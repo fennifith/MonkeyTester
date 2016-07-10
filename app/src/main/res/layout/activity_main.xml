@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -42,28 +43,32 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/data"
                 android:layout_marginLeft="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="32dp"
+                tools:text="@string/moat_or_gokey" />
 
             <TextView
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/large_text"
-                android:layout_margin="16dp" />
+                android:layout_margin="18dp"
+                android:text="@string/large_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="4dp"
-                android:textSize="20sp"
                 android:text="Contributors:"
-                android:textColor="?android:textColorPrimary" />
+                android:textColor="?android:textColorPrimary"
+                android:textSize="20sp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -73,12 +78,12 @@
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
+                    android:id="@+id/me"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:orientation="horizontal"
                     android:background="@color/colorAccent"
                     android:gravity="center_vertical"
-                    android:id="@+id/me"
+                    android:orientation="horizontal"
                     android:padding="12dp">
 
                     <TextView
@@ -107,12 +112,12 @@
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
+                    android:id="@+id/alex"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:orientation="horizontal"
                     android:background="@color/colorAccent"
                     android:gravity="center_vertical"
-                    android:id="@+id/alex"
+                    android:orientation="horizontal"
                     android:padding="12dp">
 
                     <TextView
@@ -142,6 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        app:fabSize="normal"
         android:src="@drawable/ic_description"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
