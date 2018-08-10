@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<about>
+
+    <me.jfenn.attribouter.wedges.ContributorsWedge repo="TheAndroidMaster/MonkeyTester">
+
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            name="James Fenn"
+            blog="https://jfenn.me/"
+            login="TheAndroidMaster"
+            task="^Cabbage Eater" />
+
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            name="Kartik Arora"
+            blog="https://kartikarora.me/"
+            login="kartikarora"
+            task="Contributor" />
+
+        <me.jfenn.attribouter.wedges.ContributorWedge
+            name="Alex Dueppen"
+            login="adueppen"
+            task="Icon Designer">
+
+            <me.jfenn.attribouter.wedges.link.LinkWedge
+                name="Google+"
+                url="https://plus.google.com/+adueppen" />
+
+        </me.jfenn.attribouter.wedges.ContributorWedge>
+
+    </me.jfenn.attribouter.wedges.ContributorsWedge>
+
+    <me.jfenn.attribouter.wedges.LicensesWedge overflow="0" />
+
+</about>

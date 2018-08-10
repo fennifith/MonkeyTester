@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import me.jfenn.attribouter.Attribouter;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String URL_MONKEY_DOCS = "http://developer.android.com/reference/android/app/ActivityManager.html#isUserAMonkey%28%29";
@@ -26,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         boolean monkey = ActivityManager.isUserAMonkey();
         boolean goat = ((UserManager) getSystemService(Context.USER_SERVICE)).isUserAGoat();
 
-        TextView text = (TextView) findViewById(R.id.data);
+        TextView text = findViewById(R.id.data);
 
         if (monkey && goat) {
             text.setText(R.string.moat_or_gokey);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             text.setText(R.string.neither);
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_description));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,26 +70,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.me).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("http://theandroidmaster.github.io/"));
-            }
-        });
-
-        findViewById(R.id.kartik).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("http://kartikarora.me/"));
-            }
-        });
-
-        findViewById(R.id.alex).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getCustomTabsIntent().launchUrl(MainActivity.this, Uri.parse("https://plus.google.com/+adueppen"));
-            }
-        });
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.about, Attribouter.from(this).toFragment())
+                .commit();
     }
 
     @Override
@@ -99,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_github) {
-            getCustomTabsIntent().launchUrl(this, Uri.parse("https://github.com/TheAndroidMaster/MonkeyTester"));
-        }
+        if (item.getItemId() == R.id.action_github)
+            getCustomTabsIntent().launchUrl(this, Uri.parse("https://jfenn.me/redirects/?t=github&d=MonkeyTester"));
+
         return super.onOptionsItemSelected(item);
     }
 
