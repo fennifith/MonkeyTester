@@ -1,0 +1,4 @@
+icon: "app/src/main/ic_launcher-web.png"
+screenshots:
+  - ".github/images/main.png"
+  - ".github/images/dialog.png"
